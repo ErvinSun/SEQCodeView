@@ -155,12 +155,9 @@
     [self setNeedsDisplay];
     
     if (self.textArr.count == self.lineNum && self.endEditBlcok) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSString *checkString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-            NSLog(@"codeString === %@",checkString);
-            [self endEdit];
-            self.endEditBlcok(checkString);
-        });
+        NSString *checkString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        NSLog(@"codeString === %@",checkString);
+        self.endEditBlcok(checkString);
     }
     
     return YES;
@@ -176,7 +173,7 @@
 /**
  结束编辑
  */
-- (void)endEdit {
+- (void)endEdit{
     [self.textField resignFirstResponder];
 }
 @end

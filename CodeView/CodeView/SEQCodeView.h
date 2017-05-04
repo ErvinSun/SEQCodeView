@@ -51,4 +51,14 @@ typedef NS_ENUM(NSInteger, CodeViewType) {
  @return CodeView
  */
 - (instancetype)initWithFrame:(CGRect)frame numOfChart:(NSInteger)num;
+
+/**
+ 开始编辑，弹出键盘
+ */
+- (void)beginEdit;
+
+/**
+ 结束编辑
+ */
+- (void)endEdit;
 @end

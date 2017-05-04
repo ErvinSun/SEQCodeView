@@ -230,6 +230,7 @@
 				TargetAttributes = {
 					A62739171EB9C99F0026EE11 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 67G5ZUB9QG;
 						ProvisioningStyle = Automatic;
 					};
 					A62739301EB9C99F0026EE11 = {
@@ -450,7 +451,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 67G5ZUB9QG;
 				INFOPLIST_FILE = CodeView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ervin.CodeView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -461,7 +464,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 67G5ZUB9QG;
 				INFOPLIST_FILE = CodeView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ervin.CodeView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,6 +538,7 @@
 				A62739471EB9C99F0026EE11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A62739481EB9C99F0026EE11 /* Build configuration list for PBXNativeTarget "CodeViewTests" */ = {
 			isa = XCConfigurationList;
@@ -541,6 +547,7 @@
 				A627394A1EB9C99F0026EE11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A627394B1EB9C99F0026EE11 /* Build configuration list for PBXNativeTarget "CodeViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +556,7 @@
 				A627394D1EB9C99F0026EE11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
