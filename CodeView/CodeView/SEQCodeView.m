@@ -125,7 +125,8 @@
     [self endEdit];
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    if (range.location > self.lineNum - 1) {
+    NSString *checkString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (checkString.length > self.lineNum) {
         return NO;
     }
     NSUInteger lengthOfString = string.length;  //lengthOfString的值始终为1
@@ -145,8 +146,8 @@
         
     }
     
-    NSInteger length = range.location;
-    if (length == self.textArr.count) {
+    NSInteger length = checkString.length;
+    if (length == self.textArr.count + 1) {
         [self.textArr addObject:string];
     }else{
         [self.textArr removeLastObject];
@@ -155,11 +156,15 @@
     [self setNeedsDisplay];
     
     if (self.textArr.count == self.lineNum && self.endEditBlcok) {
-        NSString *checkString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-        NSLog(@"codeString === %@",checkString);
-        self.endEditBlcok(checkString);
+        
+        /**
+         用于防止移除键盘时textField没有加入最后一个字符
+         延迟0.1秒之后return YES textfield加入最后一个字符之后才会调用回调
+         */
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.endEditBlcok(checkString);
+        });
     }
-    
     return YES;
 }
 
