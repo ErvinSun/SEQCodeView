@@ -38,6 +38,17 @@ typedef NS_ENUM(NSInteger, CodeViewType) {
  */
 @property (nonatomic, strong) UIFont *textFont;
 
+/**
+ 键盘类型
+ */
+@property (nonatomic, assign) UIKeyboardType keyBoardType;
 
+/**
+ 初始化
+ 
+ @param frame frame
+ @param num 输入个数
+ @return CodeView
+ */
 - (instancetype)initWithFrame:(CGRect)frame numOfChart:(NSInteger)num;
 @end

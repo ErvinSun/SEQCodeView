@@ -59,6 +59,9 @@
     
     [self lineToSubView];
 }
+- (void)setKeyBoardType:(UIKeyboardType)keyBoardType{
+    self.textField.keyboardType = keyBoardType;
+}
 /**
  添加下划线
  */
@@ -125,6 +128,23 @@
     if (range.location > self.lineNum - 1) {
         return NO;
     }
+    NSUInteger lengthOfString = string.length;  //lengthOfString的值始终为1
+    for (NSInteger loopIndex = 0; loopIndex < lengthOfString; loopIndex++) {
+        
+        unichar character = [string characterAtIndex:loopIndex]; //将输入的值转化为ASCII值（即内部索引值），可以参考ASCII表
+        
+        // 48-57;{0,9};65-90;{A..Z};97-122:{a..z}
+        
+        if (character < 48) return NO; // 48 unichar for 0
+        
+        if (character > 57 && character < 65) return NO; //
+        
+        if (character > 90 && character < 97) return NO;
+        
+        if (character > 122) return NO;
+        
+    }
+    
     NSInteger length = range.location;
     if (length == self.textArr.count) {
         [self.textArr addObject:string];
@@ -138,6 +158,7 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             NSString *checkString = [textField.text stringByReplacingCharactersInRange:range withString:string];
             NSLog(@"codeString === %@",checkString);
+            [self endEdit];
             self.endEditBlcok(checkString);
         });
     }
